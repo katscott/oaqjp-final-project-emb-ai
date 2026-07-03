@@ -1,0 +1,20 @@
+import unittest
+from parameterized import parameterized
+from emotion_detection import emotion_detector
+
+class TestEmotionDetection(unittest.TestCase):
+    
+    @parameterized.expand([
+        ("joy", "I am glad this happened"),
+        ("anger", "I am really mad about this"),
+        ("disgust", "I feel disgusted just hearing about this"),
+        ("sadness", "I am so sad about this"),
+        ("fear", "I am really afraid that this will happen"),
+    ])
+    def test_emotion_detector(self, expected, phrase):
+        result = emotion_detector(phrase)
+        self.assertEqual(result.get('dominant_emotion', None), expected)
+
+
+if __name__ == '__main__':
+    unittest.main()
