@@ -10,6 +10,8 @@ class TestEmotionDetection(unittest.TestCase):
         ("disgust", "I feel disgusted just hearing about this"),
         ("sadness", "I am so sad about this"),
         ("fear", "I am really afraid that this will happen"),
+        (None, None),
+        (None, "")
     ])
     def test_emotion_detector(self, expected, phrase):
         result = emotion_detector(phrase)
